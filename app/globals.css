@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Brand accent ──────────────────────────────────── */
+  --accent:                  #ffffff;
+  --accent-dark:             #e5e5e5;
+
+  /* ── Colors ────────────────────────────────────────── */
+  --navbar-bg:               #0a0f1e;
+  --color-background:        #1A2744;
+  --color-surface:           #233152;
+  --color-surface-light:     #2d3d65;
+  --color-hint:              #3B4D71;
+  --color-primary-text:      #FFFFFF;
+  --color-secondary-text:    #B0B8C4;
+  --color-divider:           rgba(255, 255, 255, 0.15);
+
+  /* ── Typography ─────────────────────────────────────── */
+  --font-heading:            'Noto Sans JP', sans-serif;
+  --font-body:               'Space Grotesk', sans-serif;
+  --font-scale:              1;
+
+  /* ── Layout ─────────────────────────────────────────── */
+  --section-py:              6rem;
+  --page-max-width:          80rem;
+  --btn-radius:              0px;
+
+  /* ── Animations ─────────────────────────────────────── */
+  --transition-duration:     200ms;
+  --animations-enabled:      1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: calc(16px * var(--font-scale));
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-hint);
+  border-radius: 3px;
+}
+
+/* Custom selection */
+::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@layer components {
+  /* ── Font family overrides via CSS vars ──────────────── */
+  .font-primary   { font-family: var(--font-heading) !important; }
+  .font-secondary { font-family: var(--font-body)    !important; }
+
+  /* ── Color overrides to respect CSS vars ────────────── */
+  .bg-background   { background-color: var(--color-background) !important; }
+  .bg-surface      { background-color: var(--color-surface)    !important; }
+  .text-primary-text   { color: var(--color-primary-text)   !important; }
+  .text-secondary-text { color: var(--color-secondary-text) !important; }
+
+  /* ── Section vertical padding ────────────────────────── */
+  .py-section {
+    padding-top:    var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+
+  /* ── Page container respects --page-max-width ────────── */
+  .page-container {
+    @apply mx-auto px-8;
+    max-width: var(--page-max-width);
+  }
+
+  /* ── Buttons ─────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/80 text-white font-primary font-semibold text-label-lg tracking-wider uppercase transition-all hover:bg-white hover:text-background;
+    border-radius: var(--btn-radius);
+    transition-duration: var(--transition-duration);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-white/80 font-secondary text-label-lg tracking-wider uppercase hover:text-white;
+    border-radius: var(--btn-radius);
+    transition-duration: var(--transition-duration);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white font-secondary text-label-lg tracking-wider uppercase hover:border-white/80 hover:bg-white/5;
+    border-radius: var(--btn-radius);
+    transition-duration: var(--transition-duration);
+  }
+
+  .section-label {
+    @apply text-label-sm font-primary font-bold uppercase tracking-widest text-secondary-text;
+  }
+
+  .section-heading {
+    @apply text-headline-md font-primary font-semibold text-primary-text;
+  }
+
+  .card-stitched {
+    @apply border border-divider bg-surface/50 p-6 hover:bg-surface hover:border-white/30;
+    border-radius: var(--btn-radius);
+    transition-duration: var(--transition-duration);
+  }
+
+  .input-field {
+    @apply w-full bg-surface border border-divider px-4 py-3 text-white placeholder-secondary-text font-secondary text-body-md focus:outline-none focus:border-white/50;
+    transition-duration: var(--transition-duration);
+  }
+
+  .divider-line {
+    @apply border-t border-divider;
+  }
+}
