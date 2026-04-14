@@ -70,6 +70,11 @@ export interface AppearanceSettings {
   // ── Footer ───────────────────────────────────────────────────
   footerTagline: string
   showSocialLinks: boolean
+  twitterUrl: string
+  linkedinUrl: string
+  instagramUrl: string
+  githubUrl: string
+  youtubeUrl: string
 }
 
 export const defaultAppearance: AppearanceSettings = {
@@ -133,4 +138,9 @@ export const defaultAppearance: AppearanceSettings = {
 
   footerTagline: 'Architecting the digital future — one solution at a time.',
   showSocialLinks: true,
+  twitterUrl: '',
+  linkedinUrl: '',
+  instagramUrl: '',
+  githubUrl: '',
+  youtubeUrl: '',
 }

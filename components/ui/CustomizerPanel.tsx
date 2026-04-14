@@ -561,6 +561,13 @@ export default function CustomizerPanel() {
                 <Toggle value={settings.showSocialLinks} onChange={(v) => update({ showSocialLinks: v })} />
               </div>
 
+              <Label>Social Links</Label>
+              <TextInput label="Twitter / X URL" value={settings.twitterUrl} onChange={(v) => update({ twitterUrl: v })} placeholder="https://twitter.com/yourhandle" />
+              <TextInput label="LinkedIn URL" value={settings.linkedinUrl} onChange={(v) => update({ linkedinUrl: v })} placeholder="https://linkedin.com/company/yourco" />
+              <TextInput label="Instagram URL" value={settings.instagramUrl} onChange={(v) => update({ instagramUrl: v })} placeholder="https://instagram.com/yourhandle" />
+              <TextInput label="GitHub URL" value={settings.githubUrl} onChange={(v) => update({ githubUrl: v })} placeholder="https://github.com/yourorg" />
+              <TextInput label="YouTube URL" value={settings.youtubeUrl} onChange={(v) => update({ youtubeUrl: v })} placeholder="https://youtube.com/@yourchannel" />
+
               <Divider />
               <Label>Animations & Effects</Label>
               <div className="flex items-center justify-between py-2">

@@ -61,15 +61,17 @@ export default function Footer() {
             {settings.showSocialLinks && (
               <div className="flex items-center gap-3">
                 {[
-                  { Icon: TwitterIcon, href: '#', label: 'Twitter' },
-                  { Icon: LinkedinIcon, href: '#', label: 'LinkedIn' },
-                  { Icon: InstagramIcon, href: '#', label: 'Instagram' },
-                  { Icon: GithubIcon, href: '#', label: 'GitHub' },
-                  { Icon: YoutubeIcon, href: '#', label: 'YouTube' },
-                ].map(({ Icon, href, label }) => (
+                  { Icon: TwitterIcon,   href: settings.twitterUrl,   label: 'Twitter' },
+                  { Icon: LinkedinIcon,  href: settings.linkedinUrl,  label: 'LinkedIn' },
+                  { Icon: InstagramIcon, href: settings.instagramUrl, label: 'Instagram' },
+                  { Icon: GithubIcon,    href: settings.githubUrl,    label: 'GitHub' },
+                  { Icon: YoutubeIcon,   href: settings.youtubeUrl,   label: 'YouTube' },
+                ].filter(({ href }) => href).map(({ Icon, href, label }) => (
                   <a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={label}
                     className="h-9 w-9 flex items-center justify-center border border-divider text-secondary-text hover:text-white hover:border-white/50 transition-colors"
                   >

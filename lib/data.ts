@@ -76,6 +76,8 @@ export interface Project {
   coverImage: string
   tags: string[]
   description?: string
+  challenge?: string
+  gallery?: string[]
   completedAt?: string
   liveUrl?: string
   results?: { metric: string; label: string }[]
@@ -359,7 +361,14 @@ export const projects: Project[] = [
     coverImage: IMG.crm,
     tags: ['React', 'Node.js', 'PostgreSQL', 'Redis'],
     completedAt: '2024-11-01',
-    description: "FinEdge Africa's legacy CRM was a bottleneck for their pan-African expansion. Built over a decade, it had accumulated technical debt that made new feature development slow and unreliable. We led a complete reconstruction — migrating to a modern microservices architecture while keeping the existing system operational throughout. The new CRM handles 50,000+ concurrent users with sub-200ms response times.",
+    challenge: "FinEdge Africa's decade-old CRM had become a critical bottleneck. The system couldn't handle concurrent load across 12 markets, new feature releases took weeks due to deeply tangled architecture, and support tickets were piling up as users hit daily crashes. The business was losing revenue directly because its internal tooling couldn't scale.",
+    description: "We led a complete reconstruction — migrating to a modern microservices architecture while keeping the existing system operational throughout the transition. Each service was rebuilt module-by-module with zero downtime, progressively cutting over user traffic until the legacy system was fully decommissioned. The new CRM handles 50,000+ concurrent users with sub-200ms response times.",
+    gallery: [
+      IMG.crm,
+      IMG.analytics,
+      IMG.kpiDashboard,
+      IMG.coding,
+    ],
     results: [
       { metric: '340%', label: 'Improvement in page load speed' },
       { metric: '60%', label: 'Reduction in support tickets' },
@@ -376,7 +385,14 @@ export const projects: Project[] = [
     coverImage: IMG.kpiDashboard,
     tags: ['Python', 'Next.js', 'TensorFlow', 'BigQuery'],
     completedAt: '2024-09-15',
-    description: 'Meridian Holdings needed visibility across their portfolio of 23 companies. We built a unified analytics platform that ingests data from multiple ERP systems, applies machine learning models for anomaly detection and forecasting, and surfaces actionable insights through an intuitive dashboard. Executives now monitor portfolio health in real time and receive automated weekly intelligence reports.',
+    challenge: "Meridian Holdings operates a portfolio of 23 companies spanning fintech, real estate, and logistics. Executives were spending 8+ hours weekly manually consolidating reports from different ERP systems in spreadsheets — with no real-time visibility, no anomaly detection, and no common data language across portfolio companies.",
+    description: 'We built a unified analytics platform that ingests data from multiple ERP systems, normalises it into a shared data model, applies machine learning models for anomaly detection and 90-day forecasting, and surfaces actionable insights through an intuitive executive dashboard. Portfolio health is now monitored in real time with automated weekly intelligence reports delivered to leadership.',
+    gallery: [
+      IMG.kpiDashboard,
+      IMG.analytics,
+      IMG.aiNeural,
+      IMG.cloudCompute,
+    ],
     results: [
       { metric: '23', label: 'Companies monitored in one platform' },
       { metric: '8hrs', label: 'Saved weekly per executive' },
@@ -393,7 +409,14 @@ export const projects: Project[] = [
     coverImage: IMG.ecommerce,
     tags: ['Next.js', 'Stripe', 'Paystack', 'PostgreSQL'],
     completedAt: '2024-07-30',
-    description: "Stackwell's existing WooCommerce store could not handle their growth trajectory. We rebuilt their platform on a headless architecture — decoupling the storefront from the commerce engine — enabling lightning-fast page loads, multi-vendor functionality, and flexible payment options including Paystack for African markets and Stripe for international customers.",
+    challenge: "Stackwell's WooCommerce store was collapsing under growth. Page load times had degraded to 8+ seconds, the checkout flow had a 71% abandonment rate, and onboarding new vendors required manual database edits. They were turning away business because the platform simply couldn't keep up.",
+    description: "We rebuilt the platform on a headless architecture — decoupling the storefront from the commerce engine and migrating the entire vendor and product catalogue with zero data loss. The new stack delivers sub-2s page loads, a streamlined vendor self-onboarding portal, and dual payment rail support via Paystack for African markets and Stripe for international customers.",
+    gallery: [
+      IMG.ecommerce,
+      IMG.analytics,
+      IMG.coding,
+      IMG.networkCables,
+    ],
     results: [
       { metric: '2.1s', label: 'Average page load time (down from 8.4s)' },
       { metric: '38%', label: 'Increase in conversion rate' },
